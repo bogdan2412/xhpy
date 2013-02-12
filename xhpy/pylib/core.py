@@ -23,6 +23,9 @@ class XHPyStrictValidator(object):
     that = element
     decl = that._xhpyAttributeDeclaration()
     while attr not in decl:
+      if getattr(that, '_allow_html5_data_attributes', False) and \
+         attr.startswith('data-'):
+        return self._safe(str, val)
       if not isinstance(that, :x:base):
         raise XHPyAttributeNotSupportedException(element, attr)
       that = super(type(that), that)

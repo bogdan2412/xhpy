@@ -29,6 +29,8 @@ class :xhpy:html-element(:x:primitive):
     string otherButtonClass, string type, string replaceCaret,
     string replaceChildren
 
+  _allow_html5_data_attributes = True
+
   def requireUniqueId(self):
     id = self.getAttribute('id')
     if not id:
